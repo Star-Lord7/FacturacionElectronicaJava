@@ -1,5 +1,6 @@
 package com.bootcampjava.FacturacionElectronicaJava.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,7 +27,9 @@ public class Departamento {
     @Column(name = "nombre", nullable = false)
     private String Nombre;
 
-    @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore //Evita recursividad
+    @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<Municipio> municipios = new ArrayList<>();
 
+    //public void setId(Long id) {}
 }

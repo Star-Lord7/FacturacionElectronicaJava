@@ -21,6 +21,11 @@ public class DepartamentoController {
         return servicio.todosDepartamentos();
     }
 
+    @GetMapping("/{id}")
+    public Departamento unDepartamento(@PathVariable Long id){
+        return servicio.unDepartamento(id);
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Departamento guardar(@RequestBody Departamento departamento){
@@ -31,6 +36,13 @@ public class DepartamentoController {
     public ResponseEntity<Void> eliminar(@PathVariable Long id){
         servicio.eliminarDepartamento(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Departamento actualizar(@PathVariable Long id, @RequestBody Departamento departamento){
+       departamento.setId(id);
+       return servicio.actualizar(departamento);
     }
 
 }
