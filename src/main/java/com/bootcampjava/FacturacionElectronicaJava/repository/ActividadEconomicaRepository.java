@@ -1,0 +1,9 @@
+package com.bootcampjava.FacturacionElectronicaJava.repository;
+
+import com.bootcampjava.FacturacionElectronicaJava.models.ActividadEconomica;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ActividadEconomicaRepository extends JpaRepository<ActividadEconomica,Long> {
+}

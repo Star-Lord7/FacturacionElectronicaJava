@@ -27,7 +27,7 @@ public class Departamento {
     @Column(name = "nombre", nullable = false)
     private String Nombre;
 
-    @JsonIgnore //Evita recursividad
+    // @JsonIgnore //Evita recursividad
     @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<Municipio> municipios = new ArrayList<>();
 
