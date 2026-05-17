@@ -38,7 +38,7 @@ public class ComercioService {
     // ELIMINAR UN DEPARTAMENTO
     public void eliminar(Long id){
         if(!repo.existsById(id)){
-            throw new RuntimeException("No se encontro el cliente con el ID: " + id);
+            throw new RuntimeException("No se encontro el comercio con el ID: " + id);
         }
         repo.deleteById(id);
     }

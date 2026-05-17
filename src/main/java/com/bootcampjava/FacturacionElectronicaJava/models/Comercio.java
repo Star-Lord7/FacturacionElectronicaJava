@@ -1,6 +1,7 @@
 package com.bootcampjava.FacturacionElectronicaJava.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,41 +27,44 @@ public class Comercio {
     @Column(name = "nombre", nullable = false)
     private String nombre; //no nulo
 
-    @Column(name = "nombre_comercial", nullable = false)
+    @Column(name = "nombreComercial", nullable = false)
     private String nombreComercial; //no nulo
 
-    @Column(name = "tipo_establecimiento", nullable = false)
-    private String tipoEstablecimiento; //2 casa matriz 1 sucursal
+    @Column(name = "tipoEstablecimiento", nullable = false)
+    private int tipoEstablecimiento; //2 casa matriz 1 sucursal
 
     @Column(name = "telefono", nullable = false)
     private String telefono; //sin giones 8 caracteres
 
-    @Column(name = "cod_estable_mh", nullable = false)
+    @Column(name = "codEstableMH", nullable = false)
     private String codEstableMH; // M001 / S00X codigo de sucursal
 
-    @Column(name = "cod_estable", nullable = false)
-    private String codEstable; //Lo mismo que EstableMH
+    /*@Column(name = "codEstable", nullable = false)
+    private String codEstable; //Lo mismo que EstableMH*/
 
-    @Column(name = "cod_punto_venta_mh", nullable = false)
+    @Column(name = "codPuntoVentaMH", nullable = false)
     private String codPuntoVentaMH; //P00X
 
-    @Column(name = "cod_punto_venta", nullable = false)
-    private String codPuntoVenta; //lo mismo que VentaMH
+    /*@Column(name = "codPuntoVenta", nullable = false)
+    private String codPuntoVenta; //lo mismo que VentaMH*/
 
     @Column(name = "correo", nullable = false)
     private String correo;
 
-    @JsonBackReference
+
+    @Column(name = "granContribuyente", nullable = false)
+    private boolean granContribuyente;
+
+    @Column(name = "complemento", nullable = true)
+    private String complementoDireccion;
+
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "municipio_id", nullable = false)
+    @JoinColumn(name = "municipio_id", nullable = true)
     private Municipio municipio;
 
-    /*@Column(name = "direccion", nullable = false)
-    private Direccion direccion;*/
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "actividadEconomica_id", nullable = true)
+    private ActividadEconomica actividadEconomica;
 }
-
-/*
-
-    public String codActividad;
-    public String descActividad;
-* */

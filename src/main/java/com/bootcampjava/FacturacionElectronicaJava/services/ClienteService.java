@@ -1,7 +1,6 @@
 package com.bootcampjava.FacturacionElectronicaJava.services;
 
 import com.bootcampjava.FacturacionElectronicaJava.models.Cliente;
-import com.bootcampjava.FacturacionElectronicaJava.models.Municipio;
 import com.bootcampjava.FacturacionElectronicaJava.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
 

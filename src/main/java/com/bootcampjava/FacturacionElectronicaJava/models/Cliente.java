@@ -18,44 +18,47 @@ public class Cliente{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Column(name = "tipo_documento", nullable = false)
+    @Column(name = "tipoDocumento", nullable = true)
     private int tipoDocumento; //13 DUI, 36 NIT, 37 OTRO
 
-    @Column(name = "num_documento", nullable = false)
+    @Column(name = "numDocumento", nullable = false)
     private String numDocumento; //sin guiones
 
-    @Column(name = "nrc", nullable = false)
+    @Column(name = "nrc", nullable = true)
     private String nrc; //sin guiones
 
     @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    @Column(name = "nombre_comercial", nullable = false)
+    @Column(name = "apellidos", nullable = true)
+    private String apellidos;
+
+    @Column(name = "nombreComercial", nullable = true)
     private String nombreComercial;
 
-    @Column(name = "telefono", nullable = false)
+    @Column(name = "telefono", nullable = true)
     private String telefono;
 
-    @Column(name = "correo", nullable = false)
+    @Column(name = "correo", nullable = true)
     private String correo;
 
-    @Column(name = "gran_contribuyente", nullable = false)
+    @Column(name = "granContribuyente", nullable = false)
     private boolean granContribuyente;
 
+    @Column(name = "complemento", nullable = true)
+    private String complementoDireccion;
+
+    @Column(name = "activo", nullable = false)
+    private boolean activo; // soft delete
+
     //@JsonIgnore
-    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "municipio_id", nullable = false)
+    @JoinColumn(name = "municipio_id", nullable = true)
     private Municipio municipio;
 
-    /*@Column(name = "direccion", nullable = false)
-    private Direccion direccion;*/
-}
+    //@JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "actividadEconomica_id", nullable = true)
+    private ActividadEconomica actividadEconomica;
 
-/*
-* A considerar despues
-*
-    public Object codActividad;
-    public Object descActividad;
-*
-* */
+}

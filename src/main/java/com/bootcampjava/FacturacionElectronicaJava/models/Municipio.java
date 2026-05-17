@@ -32,15 +32,4 @@ public class Municipio {
     @ManyToOne
     @JoinColumn(name = "departamento_id", nullable = false)
     private Departamento departamento;
-
-    //@JsonIgnore //Evita recursividad
-    @JsonManagedReference
-    @OneToMany(mappedBy = "municipio", cascade = CascadeType.ALL, orphanRemoval = false)
-    private List<Cliente> clientes = new ArrayList<>();
-
-    //@JsonIgnore //Evita recursividad
-    @JsonManagedReference
-    @OneToMany(mappedBy = "municipio", cascade = CascadeType.ALL, orphanRemoval = false)
-    private List<Comercio> comercios = new ArrayList<>();
-
 }

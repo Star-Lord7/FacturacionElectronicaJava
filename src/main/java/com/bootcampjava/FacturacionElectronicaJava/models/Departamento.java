@@ -1,6 +1,5 @@
 package com.bootcampjava.FacturacionElectronicaJava.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -16,9 +16,9 @@ public class UnidadDeMedida {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Column(name = "cod_unidad", nullable = false)
+    @Column(name = "codigo", nullable = false)
     private int codUnidad; //no nulo
 
-    @Column(name = "desc_unidad", nullable = false)
+    @Column(name = "descripcion", nullable = false)
     private String descUnidad; //no nulo
 }

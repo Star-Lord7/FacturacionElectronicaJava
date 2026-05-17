@@ -40,6 +40,7 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Void> eliminar(@PathVariable Long id){
         servicio.eliminar(id);
         return ResponseEntity.noContent().build();

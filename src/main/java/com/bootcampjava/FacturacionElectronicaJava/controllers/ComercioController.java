@@ -1,8 +1,6 @@
 package com.bootcampjava.FacturacionElectronicaJava.controllers;
 
-import com.bootcampjava.FacturacionElectronicaJava.models.Cliente;
 import com.bootcampjava.FacturacionElectronicaJava.models.Comercio;
-import com.bootcampjava.FacturacionElectronicaJava.services.ClienteService;
 import com.bootcampjava.FacturacionElectronicaJava.services.ComercioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

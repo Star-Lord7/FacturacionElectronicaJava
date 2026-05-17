@@ -1,10 +1,12 @@
 package com.bootcampjava.FacturacionElectronicaJava.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
 @Table(name = "actividades_economicas")
+//@Table(name = "cat_actividadesEconomica")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,9 +18,12 @@ public class ActividadEconomica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @Column(name = "cod_actividad", nullable = false)
+    @Column(name = "codActividad", nullable = false, unique = true)
     private String codActividad; // no nulo
 
-    @Column(name = "desc_actividad", nullable = false)
+    @Column(name = "descActividad", nullable = false)
     private String descActividad; // no nulo
+
+    @Column(name = "activo", nullable = false)
+    private boolean activo; // soft delete
 }
